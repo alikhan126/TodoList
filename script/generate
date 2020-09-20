@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+# generate
+
+angular_app() {
+    docker-compose run --no-deps --rm client ng new $1 --directory .
+}
+
+django_project() {
+    docker-compose run --no-deps --rm web django-admin.py startproject $1 .
+}
+
+django_app() {
+    docker-compose run --no-deps --rm web python manage.py startapp $1
+}
